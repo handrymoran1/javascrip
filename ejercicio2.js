@@ -1,5 +1,8 @@
 function validarContrasena(contrasena) {
 
+    let validarNumero = false;
+    let validarLetra = false;
+
     if(contrasena.length < 8){
         return false;
     }
@@ -8,9 +11,19 @@ function validarContrasena(contrasena) {
         let caracter = contrasena[i];
 
         if(caracter >= '0' && caracter <= '9') {
-            
+            validarNumero = true;
+        }
+
+        if(caracter >= 'A' && caracter <= 'Z') {
+            validarLetra = true;
         }
     }
-};
 
-validarContrasena("shd737dshadk");
+    if(validarNumero && validarLetra) {
+        return true;
+    }
+    
+    return false;
+}; 
+
+console.log(validarContrasena("ffffffsdadadD3"));
